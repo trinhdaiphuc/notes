@@ -124,23 +124,8 @@ var DefaultTransport RoundTripper = &Transport{
 const DefaultMaxIdleConnsPerHost = 2
 
 type Transport struct {
-    idleMu       sync.Mutex
-    idleConn     map[connectMethodKey][]*persistConn // most recently used at end
-    idleConnWait map[connectMethodKey]wantConnQueue  // waiting getConns
+    ...
 
-    connsPerHostMu   sync.Mutex
-    connsPerHost     map[connectMethodKey]int
-    connsPerHostWait map[connectMethodKey]wantConnQueue // waiting getConns
-
-    // Proxy specifies a function to return a proxy for a given
-    // Request. If the function returns a non-nil error, the
-    // request is aborted with the provided error.
-    //
-    // The proxy type is determined by the URL scheme. "http",
-    // "https", and "socks5" are supported. If the scheme is empty,
-    // "http" is assumed.
-    //
-    // If Proxy is nil or returns a nil *URL, no proxy is used.
     Proxy func(*Request) (*url.URL, error)
 
     // MaxIdleConns controls the maximum number of idle (keep-alive)
@@ -164,6 +149,8 @@ type Transport struct {
     // itself.
     // Zero means no limit.
     IdleConnTimeout time.Duration
+    ...
+}
 ```
 
 - **Proxy** trường hợp request ta cần đi qua proxy ta có thể cấu hình chỗ này. Với `DefaultTransport` có khai báo
