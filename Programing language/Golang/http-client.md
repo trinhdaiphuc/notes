@@ -83,7 +83,7 @@ nhiều lần.
     }
     ```
 
-- **Jar** Dùng để tạo Cookie cho request.
+- **Jar** dùng để tạo Cookie cho request.
 
 - **Timeout** cấu hình giới hạn thời gian cho mỗi request. Thời gian này bao gồm cả thời gian chuyển hướng và đọc
 response body. Cấu hình mặc định là `no timeout`. Giả sử như request tới server bị rớt thì khi đó request này sẽ
@@ -98,7 +98,7 @@ ta nên đặt một thời gian timeout cho request khi tạo một http client
 
 ### Default Transport
 
-Struct `Transport` dùng để quản lý các connection và idle connection và thực hiện việc gọi request tới server. Cùng xem qua mô tả về struct `Transport` và biến `DefaultTransport`
+Struct `Transport` dùng để quản lý các connection và idle connection và thực hiện việc gọi request tới server. Cùng xem qua mô tả về struct `Transport` và biến `DefaultTransport`.
 
 ```go
 // DefaultTransport is the default implementation of Transport and is
@@ -170,12 +170,12 @@ type Transport struct {
 sẵn một function proxy đó là `http.ProxyFromEnvironment` đọc proxy url từ các biến môi trường là `HTTP_PROXY` và
 `HTTP_PROXYS`. Vì vậy khi dùng function này ta có thể dễ dàng bật cấu hình proxy cho client bằng cách cấu hình biến
 môi trường cho ứng dụng.
-- **MaxIdleConns** là số lượng idle connection tối đa có thể mở được cho **tất cả host**
+- **MaxIdleConns** là số lượng idle connection tối đa có thể mở được cho **tất cả host**.
 - **MaxIdleConnsPerHost** số lượng idle connection tối đa có thể mở được cho **mỗi host** và giá trị mặc định
 `DefaultMaxIdleConnsPerHost` là 2, đây chính là vấn đề. Giả sử có 100 connection trong connection pool thì chỉ có 2
 connection là được cấp phát cho 1 host. Khi có nhiều request gọi vào nhưng thực tế chỉ có 2 request được xử lý,
 những request còn lại được chuyển về trạng thái `TIME_WAIT`. Để tránh việc bị bottle neck này thì ta nên cân nhắc
-tăng số lương `MaxIdleConnsPerHost` này lên
+tăng số lương `MaxIdleConnsPerHost` này lên.
 - **IdleConnTimeout** thời gian đóng connection khi nó không còn được sử dụng. Thư viện http có cơ chế thu thập và
 sử dụng lại các connection. Khi một request được thực hiện xong, connection đó được đưa lại vào connection pool và
 được tái sử dụng. Nếu như các request thực hiện xong và không còn request nào thực hiện nữa và ta không cấu hình
@@ -201,5 +201,5 @@ httpClient = &http.Client{
 
 ## References
 
-- [How to Use the HTTP Client in GO To Enhance Performance](https://www.loginradius.com/blog/engineering/tune-the-go-http-client-for-high-performance/)
+- [How to Use the HTTP Client in Go To Enhance Performance](https://www.loginradius.com/blog/engineering/tune-the-go-http-client-for-high-performance/)
 - [Golang connection pool you must understand](https://developpaper.com/golang-connection-pool-you-must-understand/)
