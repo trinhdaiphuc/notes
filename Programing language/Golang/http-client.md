@@ -58,12 +58,11 @@ type Client struct {
 }
 ```
 
-- **Transport** là thành phần chính quản lý connection pool. Nếu không cấu hình gì thì thư viện sẽ lấy `DefaultTransport` phần này sẽ nói rõ hơn ở phần sau.
+- **Transport** là thành phần chính quản lý connection pool. Nếu không cấu hình gì thì thư viện sẽ lấy `DefaultTransport` phần này sẽ nói rõ hơn ở [phần sau](#default-transport).
 
-- **CheckRedirect** là hàm để quản lý các yêu cầu của khi gặp một redirect request. Hàm được gọi trước khi thực hiện
-request sau. Hàm này có 2 tham số là `req` và `via`. `req` thê hiện cho request tiếp theo sẽ được gọi. `via` lưu lại
-các request trước đã chuyển hướng. Ta có thể sử dụng hàm này để tránh trường hợp request bắt ta chuyển hướng quá
-nhiều lần.
+- **CheckRedirect** là hàm để quản lý các yêu cầu chuyển hướng của request khi gặp một redirect request. Hàm được gọi trước khi thực hiện request kế tiếp. 
+Hàm này có 2 tham số là `req` và `via`. `req` thể hiện cho request tiếp theo sẽ được gọi. `via` lưu lại
+các request trước đã chuyển hướng. Ta có thể sử dụng hàm này để kiểm soát số lần chuyển hướng của request.
 
     ```go
     client := *http.DefaultClient
@@ -92,7 +91,7 @@ ta nên đặt một thời gian timeout cho request khi tạo một http client
 
     ```go
     var httpClient = &http.Client{
-        Timeout: time.Second * 15,
+        Timeout: time.Second * 5,
     }
     ```
 
@@ -171,7 +170,7 @@ sử dụng lại các connection. Khi một request được thực hiện xong
 nào nữa. Vì vậy cần cân nhắc và cấu hình cho trường này.
 
 Ví dụ ta có thể tận dụng lại `DefaultTransport` bằng phương thức `Clone()` để copy ra một biến Transport và tùy
-chỉnh các trường theo ý muốn.
+chỉnh các cấu hình theo ý muốn.
 
 ```go
 t := http.DefaultTransport.(*http.Transport).Clone()
