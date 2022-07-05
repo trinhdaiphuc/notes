@@ -31,7 +31,7 @@ Ví dụ này mình có tạo metrics cho các application để theo dõi số 
 
 ![grpc client load test](../../images/programing-language/golang/grpc-client.png)
 
-Chỉ có 1 server nhận được tất cả request. Restart lại grpc client và thử lại ta sẽ thấy server khác lại nhận tất cả các request.
+Có tới 3 server mà chỉ có 1 server nhận được tất cả request. Restart lại grpc client và thử lại ta sẽ thấy server khác lại nhận tất cả các request.
 
 <h3 id="grpc-loadbalancing">Tại sao service của kubernetes không thể cân bằng tải cho grpc?</h3>
 
