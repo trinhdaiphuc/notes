@@ -14,6 +14,8 @@
 
 [4. xDS là gì?](#xds)
 
+[5. Ưu nhược điểm](#pros-cons)
+
 <h3 id="problem">Vấn đề</h3>
 
 Ta hãy thử cài đặt 1 ví dụ sau đây. [Grpc xds example](https://github.com/trinhdaiphuc/grpc-xds-example). Clone project vể và cài đặt
@@ -64,7 +66,7 @@ nguyên sẽ được cung cấp cho Envoy (để cập nhật lại config khi 
 
 Bộ xDS API chính:
 
-- Listener Discovery Service (LDS): Trả về `Listener` resources. Có thể hiểu là cấu hình cho domain của back end server mà phía client cài đặt để lấy thông tin các các resource back end server.
+- Listener Discovery Service (LDS): Trả về `Listener` resources. Có thể hiểu là cấu hình domain cho back end server mà phía client cài đặt để lấy thông tin các các resource back end server.
 - Route Discovery Service (RDS): Trả về `RouteConfiguration` resources. Cấu hình traffic shiftting.
 - Cluster Discovery Service (CDS): Trả về `Cluster` resources. Cấu hình các thuật toán load balancing.
 - Endpoint Discovery Service (EDS): Trả về `ClusterLoadAssignment` resources. Cấu hình tập các endpoint của back end server để client kết nối và load balancer phía client.
@@ -115,6 +117,9 @@ import _ "google.golang.org/grpc/xds"
 }
 ```
 
+- Cuối cùng ta phải thay đổi uri address kết nối tới server thành xds:///<server_uri>. `server_uri` chính là domain mà ta cấu hình ở phía LDS.
+Trong ví dụ khi tạo service cho 1 grpc server back end, mình sẽ lấy service name, namespace và port của service đó và biến nó thành `xds:///<service_name>.<namespace>:<port>`. Bạn có thế thuỳ ý thay đổi các tạo ra uri trong xDS bằng cách cấu hình trong LDS.
+
 Vậy là đã set up xong phía grpc client.
 
 Với ví dụ mình làm ta có thể chạy thử để xem sự khác biệt. Chạy xds server và chạy xds grpc client để load test
@@ -128,7 +133,7 @@ Kết quả, ta thấy service unary call và streaming load balancing khá đ�
 
 ![grpc client xds](../../images/programing-language/golang/grpc-client-xds.png)
 
-### Ưu nhược điểm
+<h3 id="pros-cons">Ưu nhược điểm</h3>
 
 Ưu điểm
 
@@ -143,9 +148,13 @@ Nhược điểm:
 - xDS
   - Tạo CRD để xDS kết nối với Kubernetes API. Cần đảm bảo logic của xDS không ảnh hưởng tới các service khác
   - Phải implement xDS service phù hợp với yêu cầu mong muốn
+  - Phải implement thêm ở phía client
 
 - Proxy
   - Performance không tốt vì phải đi qua proxy
+
+> Istio cũng đang thử nghiệm phiên bản proxyless của mình sử dụng xDS cơ chế tương tự như trên để không còn phải đi qua các proxy sidecar nữa. 
+> Xem thêm: https://istio.io/v1.12/blog/2021/proxyless-grpc/, https://events.istio.io/istiocon-2022/sessions/proxyless-grpc/
 
 ### Tài liệu tham khảo
 
