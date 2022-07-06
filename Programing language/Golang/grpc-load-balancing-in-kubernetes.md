@@ -1,8 +1,8 @@
 # GRPC load balancing in Kubernetes
 
 > Khi viết các ứng dụng giao tiếp với nhau theo framework grpc và deploy lên Kubernetes. Để cấu hình cho client application
-> gọi qua server application, ta thường thông qua headless service của Kubernetes và ta nghĩ rằng kubernetes service sẽ load
-> balancing cho ta. Nhưng thực tế thì không như vậy.
+> gọi qua server application, ta thường thông qua service của Kubernetes và ta nghĩ rằng kubernetes service sẽ load
+> balancing. Nhưng thực tế thì không như vậy.
 
 ## Nội dung
 
@@ -20,8 +20,7 @@
 
 Ta hãy thử cài đặt 1 ví dụ sau đây. [Grpc xds example](https://github.com/trinhdaiphuc/grpc-xds-example). Clone project vể và cài đặt
 Kubernetes và Prometheus operator (có link cài đặt trong repo). Chạy grpc server và grpc client để gửi request tới grpc server thông qua
-Kubernetes headless service. Ta chỉ cần chạy lệnh. Ở đây grpc client sẽ gửi request liên tục trong 5 phút với 100 concurrency request (để
-tuỳ chỉnh cấu hình xem trong phần Configuration)
+Kubernetes service. Ta chỉ cần chạy lệnh.
 
 ```bash
 kubectl apply -f ./deploy/namespace.yml 
@@ -29,16 +28,18 @@ kubectl apply -f ./deploy/server.yml
 kubectl apply -f ./deploy/client.yml 
 ```
 
-Ví dụ này mình có tạo metrics cho các application để theo dõi số lương request client gửi đi và server nhận được. Chỉ cần bật Grafana service đã được cài trong Kubernetes lên và import dashboard vào để theo dõi. Và xem kết quả
+Ở đây grpc client sẽ gửi request liên tục trong 5 phút với 100 concurrency request (để tuỳ chỉnh cấu hình xem trong phần Configuration). Ví dụ này mình 
+có tạo metrics cho các application để theo dõi số lương request client gửi đi và server nhận được. Chỉ cần bật Grafana service đã được cài trong 
+Kubernetes lên và import dashboard vào để theo dõi. Và xem kết quả
 
 ![grpc client load test](../../images/programing-language/golang/grpc-client.png)
 
-Có tới 3 server mà chỉ có 1 server nhận được tất cả request. Restart lại grpc client và thử lại ta sẽ thấy server khác lại nhận tất cả các request.
+Có tới 3 server mà chỉ có 1 server nhận được tất cả request. Restart grpc client và thử lại ta sẽ thấy cũng sẽ chỉ có 1 server nhận tất cả các request.
 
 <h3 id="grpc-loadbalancing">Tại sao service của kubernetes không thể cân bằng tải cho grpc?</h3>
 
-Việc này không phải so service mà là do cơ chế của grpc. Ta biết được grpc được build trên HTTP/2. HTTP/2 được thiết kế cho việc mở một
-long-lived TCP connection và tất cả requests đều được gửi trong 1 connection và gửi liên tục suốt quá trình connection được mở (multiplexe -
+Việc này không phải do service mà là do cơ chế của grpc. Ta biết được grpc được build trên HTTP/2. HTTP/2 được thiết kế cho việc mở một
+long-lived TCP connection và tất cả requests đều được gửi trong 1 connection và gửi liên tục suốt quá trình connection được mở (multiplex -
 không bị Head-of-line blocking như HTTP/1). Vì vậy khi kết nối được tạo tới 1 server thì các request sẽ chỉ gửi theo connection đó nên sẽ
 không load balance được.
 
@@ -51,14 +52,14 @@ Vì cơ chế khác với HTTP/1 ta cần sử dụng các cách [load balancing
 - Sử dụng proxy. Ta có thể sử dụng các proxy để load balancing cho grpc server như Envoy hoặc sử dụng Service mesh như: Istio, Linkerd, vv..
 Cách này chỉ cần implement vào và sử dụng nhưng bị nhược điểm là thêm 1 lớp proxy làm giảm performance.
 
-- Sử dụng cách client load balancing. Thật may grpc hỗ trợ một phương thức client load balancing là [xDS protocol](https://github.com/grpc/proposal/blob/master/A27-xds-global-load-balancing.md).
-gRPC sẽ chuyển từ giao thức `grpclb` ban đầu sang giao thức `xDS` mới.
+- Sử dụng cách client load balancing. Lúc này ta cần phải biết hết thông tin endpoint của server back end. Thật may grpc hỗ trợ một phương thức client 
+load balancing là [xDS protocol](https://github.com/grpc/proposal/blob/master/A27-xds-global-load-balancing.md). gRPC sẽ chuyển từ giao thức `grpclb` ban đầu sang giao thức `xDS` mới.
 
 <h3 id="xds">xDS là gì?</h3>
 
 #### xDS API
 
-Là bộ api của Envoy một discovery service cho phép ta cấu hình và lưu trữ các tài nguyên back end phía sau và cập nhật nó bằng cách sử dụng [Envoy control plane api](https://www.envoyproxy.io/docs/envoy/latest/start/quick-start/configuration-dynamic-control-plane).
+Là bộ api của Envoy một discovery service cho phép ta cấu hình và lưu trữ các tài nguyên back end và cập nhật nó bằng cách sử dụng [Envoy control plane api](https://www.envoyproxy.io/docs/envoy/latest/start/quick-start/configuration-dynamic-control-plane).
 Envoy cung cấp tính năng tách biệt [data plane](https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a) ra khỏi phần control plane api.
 Nên ta có thể sử dụng bộ data plane này để lưu lại những tài nguyên mà ta đã discovery được. Từ đó ta viết một server đọc vào Kubernetes api
 để lấy các tài nguyên cần để load balancing và tạo các resource theo chuẩn cấu hình của Envoy và snapshot lại. Khi này các thông tin tài
@@ -68,7 +69,7 @@ Bộ xDS API chính:
 
 - Listener Discovery Service (LDS): Trả về `Listener` resources. Có thể hiểu là cấu hình domain cho back end server mà phía client cài đặt để lấy thông tin các các resource back end server.
 - Route Discovery Service (RDS): Trả về `RouteConfiguration` resources. Cấu hình traffic shiftting.
-- Cluster Discovery Service (CDS): Trả về `Cluster` resources. Cấu hình các thuật toán load balancing.
+- Cluster Discovery Service (CDS): Trả về `Cluster` resources. Cấu hình thuật toán load balancing.
 - Endpoint Discovery Service (EDS): Trả về `ClusterLoadAssignment` resources. Cấu hình tập các endpoint của back end server để client kết nối và load balancer phía client.
 
 Để viết một xDS server thì mình có viết mẫu trong ví dụ ở đầu bài. Mình sử dụng xDS gọi vào Kubernetes API để polling các resource theo mỗi
@@ -82,10 +83,10 @@ thực hiện tạo thêm hay đóng connection để tiếp tục load balancin
 
 ![grpc client architecture](../../images/programing-language/golang/grpc_client_architecture.png)
 
-Để load balancing phía client thì phải implement 2 plugin là [resolver](https://github.com/grpc/grpc/blob/master/doc/naming.md) và [LB policy](https://github.com/grpc/grpc/blob/master/doc/load-balancing.md).
-grpc đã implement 2 phương thức này cho xds nhưng để lấy được kết quả client sẽ gọi vào các api streaming của xDS server để gửi request cho
-các back end server muốn load balancing và nhận lại các thông tin này liên tục khi chúng có thay đổi. Từ đó grpc client sẽ tạo connection
-tới các grpc server thông qua các thông tin cấu hình đó.
+Để viết một load balancing custom trong grpc thì phải implement 2 plugin là [resolver](https://github.com/grpc/grpc/blob/master/doc/naming.md) và 
+[LB policy](https://github.com/grpc/grpc/blob/master/doc/load-balancing.md). Thật may grpc đã implement sẵn 2 phương thức này cho xds. Nhưng để lấy được 
+kết quả client sẽ gọi vào các api streaming của xDS server để gửi request bao gồm các back end server muốn kết nối và nhận lại các thông tin này liên 
+tục khi chúng có thay đổi. Từ đó grpc client sẽ tạo connection tới các grpc server thông qua các thông tin cấu hình đó.
 
 XdsClient và Bootstrap File
 
@@ -129,7 +130,7 @@ kubectl apply -f ./deploy/xds.yml
 kubectl apply -f ./deploy/xds-client.yml
 ```
 
-Kết quả, ta thấy service unary call và streaming load balancing khá đều
+Kết quả, ta thấy số lượng request per second (rps) của service unary call và streaming khá đều
 
 ![grpc client xds](../../images/programing-language/golang/grpc-client-xds.png)
 
@@ -146,9 +147,9 @@ Kết quả, ta thấy service unary call và streaming load balancing khá đ�
 Nhược điểm:
 
 - xDS
-  - Tạo CRD để xDS kết nối với Kubernetes API. Cần đảm bảo logic của xDS không ảnh hưởng tới các service khác
-  - Phải implement xDS service phù hợp với yêu cầu mong muốn
-  - Phải implement thêm ở phía client
+  - Tạo CRD để xDS kết nối với Kubernetes API. Cần đảm bảo logic của xDS không ảnh hưởng tới các service khác.
+  - Phải implement xDS service phù hợp với yêu cầu mong muốn và đảm bảo logic update resoure được tối ưu.
+  - Phải implement thêm ở phía client.
 
 - Proxy
   - Performance không tốt vì phải đi qua proxy
