@@ -213,7 +213,7 @@ Có rất nhiều cách để tạo Signaling giữa 2 client như: WebSocket, S
 
 - Số lượng hàm API WebRTC hỗ trợ cho mỗi trình duyệt là khác nhau, tăng rủi ro phát sinh lỗi khi sử dụng trên các trình duyệt khác nhau.
 
-## 6. Conclusion:
+## 6. Conclusion
 
 WebRTC thích hợp cho việc tạo ứng dụng video call, audio call giảm tải cho server. Vì WebRTC viết trên giao thức UDP nên không thích hợp truyền file với yêu cầu tính toàn vẹn cao.
 
