@@ -102,12 +102,15 @@ trước và sẽ đẩy traffic qua rồi mới tắt pod cũ đi. Cơ chế n�
 
 Nên xây dựng một hệ thống Infrastructure-as-code (IaC) trong CI/CD pipeline để delivery resouce một
 cách tự động. Có nghĩa là khi deploy application thì cũng sẽ deploy infratructure. Điều này giúp
-mình hình dung được môi trường production như thế nào.
+mình hình dung được môi trường production như thế nào và môi trường testing sẽ replica với production.
 
 Có 2 lợi ít của việc build CI/CD pipeline:
 
-1.
+1. Nó giúp bạn đảm bảo ứng dụng của bạn và hạ tầng thường xuyên được kiểm tra và môi trường testing sẽ gần nhất với production
 
-2.
+2. Giúp giảm thiểu vấn đề khi gặp sự cố. Chỉ cần deploy lại vì mọi thứ đều tự động
 
 ## 6. Create checkpoints for automated rollbacks
+
+Khi bạn cần roll back về một bản release version trước đó, việc set up được pipeline tự động sẽ làm mọi thứ dễ hơn.
+Nếu bạn có một CI/CD pipeline đủ mạnh, bạn có thể sửa lỗi và triển khai update nhanh chóng và tránh phải roll back về một version trước.
