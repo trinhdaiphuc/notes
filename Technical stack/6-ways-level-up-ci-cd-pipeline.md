@@ -1,9 +1,9 @@
 # 6 strategic ways to level up your CI/CD pipeline
 
 > _Source:
-> [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/)_
+> [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/){:target="_blank"}.
 
-[1. Add performance, device compatibility, and accessibility testingu](#1-add-performance-device-compatibility-and-accessibility-testing)
+[1. Add performance, device compatibility, and accessibility testing](#1-add-performance-device-compatibility-and-accessibility-testing)
 
 [2. Incorporate more automated security testing](#2-incorporate-more-automated-security-testing)
 
