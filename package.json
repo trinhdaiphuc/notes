@@ -2,7 +2,10 @@
   "name": "my-notes",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://trinhdaiphuc.github.io/notes",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -27,6 +30,7 @@
     "@docusaurus/module-type-aliases": "3.0.1",
     "@docusaurus/tsconfig": "3.0.1",
     "@docusaurus/types": "3.0.1",
+    "gh-pages": "^6.1.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {
