@@ -30,7 +30,7 @@ Phát triển game chơi trực tiếp trong trình duyệt. Người chơi ch�
 
 Kiến trúc tổng quan gồm 2 lớp riêng biệt:
 
-![architech](../images/technical-stack/webrtc-architech.png)
+![architech](../../static/img/technical-stack/webrtc-architech.png)
 
 - Browser developers sẽ quan tâm đến WebRTC C++ API và các thành phần core sâu hơn của nó như Voice Engine, Video Engine, Transport. Hay dễ hiểu hơn đó là âm thanh, video và kết nối mạng.
 
@@ -106,7 +106,7 @@ Ví dụ như xóa tiếng ồn video từ ảnh quay bởi webcam.
 
 ### 4.1/ Các bước thực hiện
 
-![step](../images/technical-stack/webrtc-step.png)
+![step](../../static/img/technical-stack/webrtc-step.png)
 
 - Sử dụng getUserMedia API để truy cập vào camera và microphone.
 
@@ -126,7 +126,7 @@ Kết nối P2P của WebRTC là cách thức kết nối 2 ứng dụng ở 2 m
 
 **NAT (Network Address Translation)**
 
-![nat](../images/technical-stack/webrtc-nat.png)
+![nat](../../static/img/technical-stack/webrtc-nat.png)
 
 - Có 2 loại IP là IP public và IP private, các máy trong mạng LAN được đặt IP Private vì mấy IP private không tồn tại ngoài Internet (Vd: 192.168.1.1, 192.168.1.2 etc). IP public thì tất nhiên tồn tại trên Internet rồi vì chùng ta đã đăng ký với ISP (nhà cung cấp dịch vụ Internet). Thông thường NAT thường thay đổi địa chỉ thường là địa chỉ riêng (IP Private) của một kết nối mạng thành địa chỉ công cộng (IP Public).
 
@@ -146,7 +146,7 @@ Kết nối P2P của WebRTC là cách thức kết nối 2 ứng dụng ở 2 m
 
 Cũng giống như STUN tuy nhiên TURN hỗi trợ cả giao thức TCP làm giao thức truyền tải. TURN bổ xung cho hạn chế của STUN là hỗ trợ Symmetric NAT. Dữ liệu thay vì được gửi trực tiếp tới các peer thì các peer sẽ gửi dữ liệu tới các TURN server và TURN server sẽ đóng vai trò trung gian vận chuyển gói tin. Điều này nâng cao giúp chất lượng dịch vụ của ứng dụng mà còn đảm bảo an toàn thông tin khi truyền dẫn.
 
-![turn-stun](../images/technical-stack/webrtc-turn-stun.png)
+![turn-stun](../../static/img/technical-stack/webrtc-turn-stun.png)
 
 **SDP (Session Description Protocol)**
 
@@ -174,12 +174,12 @@ VÌ WebRTC là phương thức giao tiếp P2P giữa 2 client. Vậy làm sao �
 
 Có rất nhiều cách để tạo Signaling giữa 2 client như: WebSocket, Socket.io, XMPP (Extensible Messaging and Presence Protocol), SIP (session initiation protocol),Kurento, hoặc đơn giản hơn bằng XHR.
 
-|            | Giới thiệu                                                                                                                                                               | Protocol            | Chuẩn giao tiếp                    | Thiết bị hỗ trợ                  | Ưu điểm                                                                                                                                       | Nhược điểm                                                                   |
-|----------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-------------------- |----------------------------------- |--------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------- |----------------------------------------------------------------------------- |
-| Websocket  | Là 1 web API có trên browser.  Nó là một đặc tả mới của HTML5,  nên nó vẫn chưa được tất cả các trình duyệt hỗ trợ.                                                      | TCP                 | String, buffered arrays và blobs.  | Browser, mobile                  | Giao tiếp real time. Kiểm tra được user nào đang online                                                                                       | TCP socket nên tốn thời gian khởi tạo                                        |
-| Socket.io  | Là một thư viện viết dựa trên websocket.                                                                                                                                 | TCP                 | String, buffered arrays và blobs.  | Browser, mobile                  | Giao tiếp real time. Kiểm tra được user nào đang online                                                                                       | TCP socket nên tốn thời gian khởi tạo. Performance không tốt bằng websocket  |
-| SIP        | là một giao thức báo hiệu được sử dụng để thiết lập  một phiên giao dịch trực tuyến giữa 2 hoặc nhiều người  tham gia, sửa đổi phiên đó và cuối cùng chấm dứt phiên đó.  | TCP, UDP            | Text based như HTTP                | Browser, mobile, điện thoại bàn  | Vì SIP là tiêu chuẩn mở nên nó tương thích với đa số các  thiết bị như: điện thoại bàn, tablets, laptop và nhiều  thiết bị khác               | Quá trình set up server SIP tốn thời  gian và chi phí                        |
-| XMPP       | trước đây là Jabber, là giao thức mở và dựa trên nền tảng  XML dùng trong nhắn tin nhanh (instant messaging) và thông  tin hiện diện trực tuyến                          | TCP (native), HTTP  | XML                                | Browser, mobile                  | Vì XMPP là một giao thức mở, bất kỳ ai cũng có thể có máy  chủ XMPP của riêng mình trong mạng mà không nhất thiết  phải kết nối với Internet  | Nhắn tin dựa trên văn bản, không cung  cấp mã hóa đầu cuối                   |
+|           | Giới thiệu                                                                                                                                                              | Protocol           | Chuẩn giao tiếp                   | Thiết bị hỗ trợ                 | Ưu điểm                                                                                                                                      | Nhược điểm                                                                  |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Websocket | Là 1 web API có trên browser.  Nó là một đặc tả mới của HTML5,  nên nó vẫn chưa được tất cả các trình duyệt hỗ trợ.                                                     | TCP                | String, buffered arrays và blobs. | Browser, mobile                 | Giao tiếp real time. Kiểm tra được user nào đang online                                                                                      | TCP socket nên tốn thời gian khởi tạo                                       |
+| Socket.io | Là một thư viện viết dựa trên websocket.                                                                                                                                | TCP                | String, buffered arrays và blobs. | Browser, mobile                 | Giao tiếp real time. Kiểm tra được user nào đang online                                                                                      | TCP socket nên tốn thời gian khởi tạo. Performance không tốt bằng websocket |
+| SIP       | là một giao thức báo hiệu được sử dụng để thiết lập  một phiên giao dịch trực tuyến giữa 2 hoặc nhiều người  tham gia, sửa đổi phiên đó và cuối cùng chấm dứt phiên đó. | TCP, UDP           | Text based như HTTP               | Browser, mobile, điện thoại bàn | Vì SIP là tiêu chuẩn mở nên nó tương thích với đa số các  thiết bị như: điện thoại bàn, tablets, laptop và nhiều  thiết bị khác              | Quá trình set up server SIP tốn thời  gian và chi phí                       |
+| XMPP      | trước đây là Jabber, là giao thức mở và dựa trên nền tảng  XML dùng trong nhắn tin nhanh (instant messaging) và thông  tin hiện diện trực tuyến                         | TCP (native), HTTP | XML                               | Browser, mobile                 | Vì XMPP là một giao thức mở, bất kỳ ai cũng có thể có máy  chủ XMPP của riêng mình trong mạng mà không nhất thiết  phải kết nối với Internet | Nhắn tin dựa trên văn bản, không cung  cấp mã hóa đầu cuối                  |
 
 ## 5. Ưu nhược điểm
 

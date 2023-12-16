@@ -1,15 +1,15 @@
 # 6 strategic ways to level up your CI/CD pipeline
 
 > _Source:
-> [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/){:target="_blank"}.
+> [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/).
 
 [1. Add performance, device compatibility, and accessibility testing](#1-add-performance-device-compatibility-and-accessibility-testing)
 
 [2. Incorporate more automated security testing](#2-incorporate-more-automated-security-testing)
 
-[3. Build a phased testing strategyc](#3-build-a-phased-testing-strategy)
+[3. Build a phased testing strategy](#3-build-a-phased-testing-strategy)
 
-[4. Invest in blue-green deployments for easier rollouts](#4-invest-in-blue-green-deployments-for-easier-rollouts)
+[4. Invest in blue-green deployments for easier rollout](#4-invest-in-blue-green-deployments-for-easier-rollouts)
 
 [5. Adopt infrastructure-as-code for greater flexibility](#5-adopt-infrastructure-as-code-for-greater-flexibility)
 
@@ -64,7 +64,7 @@ có chưa các lỗ hổng hoặc credentials hay không.
 Điều quan trọng nhất là các team nên coi việc bảo mật là việc nên làm trong suốt vòng đời phát triển
 sản phầm (Software Development Life Cycle - SDLC) - không chỉ trước và sau khi lên production.
 
-![A screenshot of automated security testing workflows on GitHub.](../images/technical-stack/cicd-security.webp)
+![A screenshot of automated security testing workflows on GitHub.](../../static/img/technical-stack/cicd-security.webp)
 _Automated security testing workflows on GitHub._
 
 ## 3. Build a phased testing strategy

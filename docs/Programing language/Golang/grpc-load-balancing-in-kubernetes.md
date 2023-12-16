@@ -32,7 +32,7 @@ kubectl apply -f ./deploy/client.yml
 có tạo metrics cho các application để theo dõi số lương request client gửi đi và server nhận được. Chỉ cần bật Grafana service đã được cài trong 
 Kubernetes lên và import dashboard vào để theo dõi. Và xem kết quả
 
-![grpc client load test](../../images/programing-language/golang/grpc-client.png)
+![grpc client load test](../../../static/img/programing-language/golang/grpc-client.png)
 
 Có tới 3 server mà chỉ có 1 server nhận được tất cả request. Restart grpc client và thử lại ta sẽ thấy cũng sẽ chỉ có 1 server nhận tất cả các request.
 
@@ -43,7 +43,7 @@ long-lived TCP connection và tất cả requests đều được gửi trong 1 
 không bị Head-of-line blocking như HTTP/1). Vì vậy khi kết nối được tạo tới 1 server thì các request sẽ chỉ gửi theo connection đó nên sẽ
 không load balance được.
 
-![grpc client not load balance](../../images/programing-language/golang/grpc-client-not-load-balancing.png)
+![grpc client not load balance](../../../static/img/programing-language/golang/grpc-client-not-load-balancing.png)
 
 <h3 id="solution">Giải pháp</h3>
 
@@ -77,11 +77,11 @@ phút để lấy ra thông tin endpoint (ip, port) của các pod trong mỗi s
 nó vào cache của data plane. Sau khi tạo snapshot và đánh version cho data plane, các thông tin này sẽ được gửi về cho phía client để client
 thực hiện tạo thêm hay đóng connection để tiếp tục load balancing. Ví dụ
 
-![xds api flow](../../images/programing-language/golang/xds-flow.png)
+![xds api flow](../../../static/img/programing-language/golang/xds-flow.png)
 
 #### grpc client architecture
 
-![grpc client architecture](../../images/programing-language/golang/grpc_client_architecture.png)
+![grpc client architecture](../../../static/img/programing-language/golang/grpc_client_architecture.png)
 
 Để viết một load balancing custom trong grpc thì phải implement 2 plugin là [resolver](https://github.com/grpc/grpc/blob/master/doc/naming.md) và 
 [LB policy](https://github.com/grpc/grpc/blob/master/doc/load-balancing.md). Thật may grpc đã implement sẵn 2 phương thức này cho xds. Nhưng để lấy được 
@@ -118,7 +118,7 @@ import _ "google.golang.org/grpc/xds"
 }
 ```
 
-- Cuối cùng ta phải thay đổi uri address kết nối tới server thành xds:///<server_uri>. `server_uri` chính là domain mà ta cấu hình ở phía LDS.
+- Cuối cùng ta phải thay đổi uri address kết nối tới server thành `xds:///<server_uri>`. `server_uri` chính là domain mà ta cấu hình ở phía LDS.
 Trong ví dụ khi tạo service cho 1 grpc server back end, mình sẽ lấy service name, namespace và port của service đó và biến nó thành `xds:///<service_name>.<namespace>:<port>`. Bạn có thế thuỳ ý thay đổi các tạo ra uri trong xDS bằng cách cấu hình trong LDS.
 
 Vậy là đã set up xong phía grpc client.
@@ -132,7 +132,7 @@ kubectl apply -f ./deploy/xds-client.yml
 
 Kết quả, ta thấy số lượng request per second (rps) của service unary call và streaming khá đều
 
-![grpc client xds](../../images/programing-language/golang/grpc-client-xds.png)
+![grpc client xds](../../../static/img/programing-language/golang/grpc-client-xds.png)
 
 <h3 id="pros-cons">Ưu nhược điểm</h3>
 

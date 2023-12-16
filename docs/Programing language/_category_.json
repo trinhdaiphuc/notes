@@ -1,0 +1,8 @@
+{
+  "label": "Programming language",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Deep dive into programming languages"
+  }
+}
