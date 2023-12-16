@@ -4,8 +4,6 @@
   "private": true,
   "homepage": "https://trinhdaiphuc.github.io/notes",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
