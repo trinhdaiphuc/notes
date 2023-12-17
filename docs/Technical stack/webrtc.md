@@ -1,19 +1,5 @@
 # WebRTC
 
-## Nội dung
-
-[1. Giới thiệu](#1-giới-thiệu)
-
-[2. Công dụng của WebRTC](#2-công-dụng-của-webrtc)
-
-[3. Kiến trúc](#3-kiến-trúc)
-
-[4. Cách hoạt động](#4-cách-hoạt-động)
-
-[5. Ưu nhược điểm](#5-ưu-nhược-điểm)
-
-[6. Conclusion](#6-conclusion)
-
 ## 1. Giới thiệu
 
 WebRTC là viết tắt của cụm từ Web Real-Time Communication rất được các lập trình viên ưa chuộng. WebRTC cho phép các trình duyệt giao tiếp với nhau theo thời gian thực .Ví dụ như: gọi điện, video, chơi game,… Ngoài ra, WebRTC là một sản phẩm của World Wide Web Consortium (W3C).

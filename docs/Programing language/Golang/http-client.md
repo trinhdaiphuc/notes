@@ -3,12 +3,7 @@
 > Để tạo một request lấy thông tin từ một server chứng ta hay sử dụng `http.DefaultClient` hoặc `&http.Client{}` mà
 > không cấu hình gì thêm. Vậy điều này có ảnh hưởng gì tới hiệu năng của ứng dụng?
 
-## Table of content:
-
-1. [Default HTTP Client](#default-http-client)
-2. [Default Transport](#default-transport)
-
-### Default HTTP Client
+## Default HTTP Client
 
 Khi ta sử dụng `http.DefaultClient`, `&http.Client{}`, `http.Get(url,...)` để tạo mộ http client thì thư viện sẽ
 dùng các cầu hình mặc định của thư viện. Trong package `net/http` thì struct `Client` được mô tả như sau.
@@ -95,7 +90,7 @@ ta nên đặt một thời gian timeout cho request khi tạo một http client
     }
     ```
 
-### Default Transport
+## Default Transport
 
 Struct `Transport` dùng để quản lý các connection và idle connection và thực hiện việc gọi request tới server. Cùng xem qua mô tả về struct `Transport` và biến `DefaultTransport`.
 

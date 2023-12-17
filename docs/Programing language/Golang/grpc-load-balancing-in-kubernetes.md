@@ -4,19 +4,7 @@
 > gọi qua server application, ta thường thông qua service của Kubernetes và ta nghĩ rằng kubernetes service sẽ load
 > balancing. Nhưng thực tế thì không như vậy.
 
-## Nội dung
-
-[1. Vấn đề](#problem)
-
-[2. Tại sao service của kubernetes không thể cân bằng tải cho grpc?](#grpc-loadbalancing)
-
-[3. Giải pháp](#solution)
-
-[4. xDS là gì?](#xds)
-
-[5. Ưu nhược điểm](#pros-cons)
-
-<h3 id="problem">Vấn đề</h3>
+<h2 id="problem">Vấn đề</h2>
 
 Ta hãy thử cài đặt 1 ví dụ sau đây. [Grpc xds example](https://github.com/trinhdaiphuc/grpc-xds-example). Clone project vể và cài đặt
 Kubernetes và Prometheus operator (có link cài đặt trong repo). Chạy grpc server và grpc client để gửi request tới grpc server thông qua
@@ -36,7 +24,7 @@ Kubernetes lên và import dashboard vào để theo dõi. Và xem kết quả
 
 Có tới 3 server mà chỉ có 1 server nhận được tất cả request. Restart grpc client và thử lại ta sẽ thấy cũng sẽ chỉ có 1 server nhận tất cả các request.
 
-<h3 id="grpc-loadbalancing">Tại sao service của kubernetes không thể cân bằng tải cho grpc?</h3>
+<h2 id="grpc-loadbalancing">Tại sao service của kubernetes không thể cân bằng tải cho grpc?</h2>
 
 Việc này không phải do service mà là do cơ chế của grpc. Ta biết được grpc được build trên HTTP/2. HTTP/2 được thiết kế cho việc mở một
 long-lived TCP connection và tất cả requests đều được gửi trong 1 connection và gửi liên tục suốt quá trình connection được mở (multiplex -
@@ -45,7 +33,7 @@ không load balance được.
 
 ![grpc client not load balance](../../../static/img/programing-language/golang/grpc-client-not-load-balancing.png)
 
-<h3 id="solution">Giải pháp</h3>
+<h2 id="solution">Giải pháp</h2>
 
 Vì cơ chế khác với HTTP/1 ta cần sử dụng các cách [load balancing của grpc](https://grpc.io/blog/grpc-load-balancing/)
 
@@ -55,7 +43,7 @@ Cách này chỉ cần implement vào và sử dụng nhưng bị nhược đi�
 - Sử dụng cách client load balancing. Lúc này ta cần phải biết hết thông tin endpoint của server back end. Thật may grpc hỗ trợ một phương thức client 
 load balancing là [xDS protocol](https://github.com/grpc/proposal/blob/master/A27-xds-global-load-balancing.md). gRPC sẽ chuyển từ giao thức `grpclb` ban đầu sang giao thức `xDS` mới.
 
-<h3 id="xds">xDS là gì?</h3>
+<h2 id="xds">xDS là gì?</h2>
 
 #### xDS API
 
@@ -134,7 +122,7 @@ Kết quả, ta thấy số lượng request per second (rps) của service unar
 
 ![grpc client xds](../../../static/img/programing-language/golang/grpc-client-xds.png)
 
-<h3 id="pros-cons">Ưu nhược điểm</h3>
+<h2 id="pros-cons">Ưu nhược điểm</h2>
 
 Ưu điểm
 
