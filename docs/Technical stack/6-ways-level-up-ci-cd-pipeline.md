@@ -1,19 +1,6 @@
 # 6 strategic ways to level up your CI/CD pipeline
 
-> _Source:
-> [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/).
-
-[1. Add performance, device compatibility, and accessibility testing](#1-add-performance-device-compatibility-and-accessibility-testing)
-
-[2. Incorporate more automated security testing](#2-incorporate-more-automated-security-testing)
-
-[3. Build a phased testing strategy](#3-build-a-phased-testing-strategy)
-
-[4. Invest in blue-green deployments for easier rollout](#4-invest-in-blue-green-deployments-for-easier-rollouts)
-
-[5. Adopt infrastructure-as-code for greater flexibility](#5-adopt-infrastructure-as-code-for-greater-flexibility)
-
-[6. Create checkpoints for automated rollbacks](#6-create-checkpoints-for-automated-rollbacks)
+> _Source: [6 strategic ways to level up your CI/CD pipeline](https://github.blog/2022-07-19-6-strategic-ways-to-level-up-your-ci-cd-pipeline/).
 
 ## 1. Add performance, device compatibility, and accessibility testing
 
