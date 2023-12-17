@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_notes=self.webpackChunkmy_notes||[]).push([[2799],{5098:e=>{e.exports=JSON.parse('{"title":"Programming language","description":"Deep dive into programming languages","slug":"/category/programming-language","permalink":"/docs/category/programming-language","navigation":{"next":{"title":"Golang","permalink":"/docs/category/golang"}}}')}}]);

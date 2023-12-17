@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Technical stack/webrtc" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">WebRTC | My Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://trinhdaiphuc.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://trinhdaiphuc.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://trinhdaiphuc.github.io/docs/Technical stack/webrtc"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="WebRTC | My Site"><meta data-rh="true" name="description" content="Nội dung"><meta data-rh="true" property="og:description" content="Nội dung"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://trinhdaiphuc.github.io/docs/Technical stack/webrtc"><link data-rh="true" rel="alternate" href="https://trinhdaiphuc.github.io/docs/Technical stack/webrtc" hreflang="en"><link data-rh="true" rel="alternate" href="https://trinhdaiphuc.github.io/docs/Technical stack/webrtc" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="My Site RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="My Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.0b6ebd38.css">
+<script src="/assets/js/runtime~main.149ac62c.js" defer="defer"></script>
+<script src="/assets/js/main.9918f45e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">My Site</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/category/programming-language">Tutorial</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/category/programming-language">Programming language</a><button aria-label="Expand sidebar category &#x27;Programming language&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro">Tutorial Intro</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/category/technical-stacks">Technical stacks</a><button aria-label="Collapse sidebar category &#x27;Technical stacks&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Technical stack/ways-level-up-ci-cd-pipeline">6 strategic ways to level up your CI/CD pipeline</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Technical stack/cached-me-if-you-can">Cache me if you can: A Look at Common Caching Strategies, and how CQRS can Replace the Need in the First Place</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Technical stack/webrtc">WebRTC</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/category/technical-stacks"><span itemprop="name">Technical stacks</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">WebRTC</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>WebRTC</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="nội-dung">Nội dung<a href="#nội-dung" class="hash-link" aria-label="Direct link to Nội dung" title="Direct link to Nội dung">​</a></h2>
+<p><a href="#1-gi%E1%BB%9Bi-thi%E1%BB%87u">1. Giới thiệu</a></p>
+<p><a href="#2-c%C3%B4ng-d%E1%BB%A5ng-c%E1%BB%A7a-webrtc">2. Công dụng của WebRTC</a></p>
+<p><a href="#3-ki%E1%BA%BFn-tr%C3%BAc">3. Kiến trúc</a></p>
+<p><a href="#4-c%C3%A1ch-ho%E1%BA%A1t-%C4%91%E1%BB%99ng">4. Cách hoạt động</a></p>
+<p><a href="#5-%C6%B0u-nh%C6%B0%E1%BB%A3c-%C4%91i%E1%BB%83m">5. Ưu nhược điểm</a></p>
+<p><a href="#6-conclusion">6. Conclusion</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-giới-thiệu">1. Giới thiệu<a href="#1-giới-thiệu" class="hash-link" aria-label="Direct link to 1. Giới thiệu" title="Direct link to 1. Giới thiệu">​</a></h2>
+<p>WebRTC là viết tắt của cụm từ Web Real-Time Communication rất được các lập trình viên ưa chuộng. WebRTC cho phép các trình duyệt giao tiếp với nhau theo thời gian thực .Ví dụ như: gọi điện, video, chơi game,… Ngoài ra, WebRTC là một sản phẩm của World Wide Web Consortium (W3C).</p>
+<p>WebRTC là các API viết bằng javascript giúp giao tiếp theo thời gian thực. WebRTC có khả năng hỗ trợ trình duyệt giao tiếp thời gian thực thông qua Video Call, Voice Call hay transfer data P2P(peer-to-peer).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-công-dụng-của-webrtc">2. Công dụng của WebRTC<a href="#2-công-dụng-của-webrtc" class="hash-link" aria-label="Direct link to 2. Công dụng của WebRTC" title="Direct link to 2. Công dụng của WebRTC">​</a></h2>
+<p>Truyền tải video, âm thanh, gửi dữ liệu “Peer-to-Peer” (P2P) theo thời gian thực giữa hai hay nhiều thiết bị mà không qua trung gian, không cần cài thêm plugin.</p>
+<p>Phát triển game chơi trực tiếp trong trình duyệt. Người chơi chỉ cần sử dụng trình duyệt có hỗ trợ WebRTC để chơi, không cần cài đặt rườm rà.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-kiến-trúc">3. Kiến trúc<a href="#3-kiến-trúc" class="hash-link" aria-label="Direct link to 3. Kiến trúc" title="Direct link to 3. Kiến trúc">​</a></h2>
+<p>Kiến trúc tổng quan gồm 2 lớp riêng biệt:</p>
+<p><img loading="lazy" alt="architech" src="/assets/images/webrtc-architech-b8c059e8f0e7613ad733b0c59ba766c3.png" width="740" height="482" class="img_ev3q"></p>
+<ul>
+<li>
+<p>Browser developers sẽ quan tâm đến WebRTC C++ API và các thành phần core sâu hơn của nó như Voice Engine, Video Engine, Transport. Hay dễ hiểu hơn đó là âm thanh, video và kết nối mạng.</p>
+</li>
+<li>
+<p>Web App developers sẽ quan tâm tới Web API.</p>
+</li>
+</ul>
+<p><strong>Your Web App</strong></p>
+<p>Một ứng dụng phát triển bởi các developer bên thứ 3 với video và audio chat, xây dựng dựa trên Web API để kết nối thời gian thực.</p>
+<p><strong>Web API</strong></p>
+<p>Một API được sử dụng bởi các developer bên thứ 3, để phát triển web video.</p>
+<p>WebRTC Native C++ API</p>
+<p>Một tầng API cho phép trình duyện dễ dàng thực thi Web API.</p>
+<p><strong>Transport / Session</strong></p>
+<p>Các session componnent được xây dựng bời việc sử dụng lại các component từ libjingle, không yêu cầu hoặc sử dụng giao thức xmpp/jingle .</p>
+<p><strong>RTP Stack</strong></p>
+<p>Một network stack cho RTP (Real Time Protocol)</p>
+<p><strong>STUN/ICE</strong></p>
+<p>Một component cho phép các cuộc gọi sử dụng STUN và ICE để thiết lập kết nối thông qua các loại networks khác nhau.</p>
+<p><strong>Session Management</strong></p>
+<p>Một lớp session trừu tượng (abstract session layer) cho phép thiết lập cuộc gọi và lớp quản lý.</p>
+<p><strong>VoiceEngine</strong></p>
+<p>VoiceEngine là một framework cho audio media chain, từ card âm thanh tới mạng.</p>
+<p><strong>iSAC / iLBC / Opus</strong></p>
+<p>Đây là những audio codec, đơn giản hiểu là cách mình nén và giải nén data audio và video để truyền tới user phù hợp với bandwidth và chất lượng âm thanh, hình ảnh đầu đầu ra.</p>
+<ul>
+<li>
+<p>iSAC: Một băng tần rộng (wideband) và băng tần siêu rộng (super wideband) audio codec cho VoIP và streaming audio. iSAC sử dụng tần số 16 kHz hoặc 32 kHz ví dụ thường xuyên với một adaptive và biến bit rate của 12 - 52kbps. Codec là một thiết bị hoặc một chương trình máy tính có khả năng mã hóa và giải mã một dòng dữ liệu hoặc tín hiệu. Từ &quot;codec&quot; là từ kết hợp của bất kỳ những cụm từ sau: &#x27;Compressor-Decompressor&#x27;, &#x27;Coder-Decoder&#x27;, hoặc &#x27;Compression/Decompression algorithm&#x27;. Các codec mã hóa một dòng dữ liệu hoặc tín hiệu để truyền tải, lưu trữ, hoặc bảo mật và giải mã nó để xem hoặc sửa đổi. Các codec thường được sử dụng trong các giải pháp hội nghị truyền hình và streaming media. Một máy quay biến đổi tín hiệu tuần tự sang tín hiệu số, sau đó sẽ chuyển qua một bộ nén video để truyền tải tín hiệu số. Một thiết bị nhận sẽ chuyển tín hiệu qua một bộ giải nén video, sau đó một thiết bị biến đổi từ tín hiệu số sang tín hiệu tuần tự để thể hiện nội dung. Một bộ giải nén âm thanh sẽ biến đổi tín hiệu âm thanh tuần tự sang tín hiệu số để truyền tải. Một thiết bị nhận sẽ biến đổ tín hiệu số trở lại tín hiệu tuần tự thông qua một bộ giải nén âm thanh để phát lại nội dung.</p>
+</li>
+<li>
+<p>iLBC: Một narrowband speech codec cho VoIP và streaming audio. Sử dụng tần số 8 kHz với một bitrate of 15.2 kbps cho 20ms khung và 13.33 kbps cho 30ms khung. Định nghĩa bởi IETF RFCs 3951 và 3952.</p>
+</li>
+<li>
+<p>Opus: hỗ trợ hằng và biến bitrate mã hóa từ 6 kbit/s tới 510 kbit/s, khung size từ 2.5 ms tới 60 ms. Được định nghĩa bởi IETF RFC 6176. NetEQ cho Voice.</p>
+</li>
+</ul>
+<p><strong>Acoustic Echo Canceler (AEC)</strong></p>
+<p>The Acoustic Echo Canceler là một phần mềm dựa trên các thành phẫn xử lý tín hiệu đã được xóa. Trong real time, acoustic cho kết quả từ voice được chạy tới mircrophone đang hoạt động</p>
+<p><strong>Noise Reduction (NR)</strong></p>
+<p>Noise Reduction component là một phần mềm dựa trên các thành phần xử lý tín hiệu, nhằm loại bỏ các loại tiếng ồn kết hợp với VoIP. (Hiss, fan noise, etc…)</p>
+<p><strong>VideoEngine</strong></p>
+<p>VideoEngine là một framework video media chain cho video, từ camera tới mạng, và từ mạng tới màn hình.</p>
+<p><strong>VP8</strong></p>
+<p>Video codec từ dự án WebM. Nó phù hợp với RTC như một thiết kế cho độ trễ thấp (low latency)</p>
+<p><strong>Video Jitter Buffer</strong></p>
+<p>Jitter Buffer động cho video. Giúp che giấu ảnh hưởng của jitter và packet bị mất trong toàn bộ chất lượng video.</p>
+<p><strong>Image enhancements</strong></p>
+<p>Ví dụ như xóa tiếng ồn video từ ảnh quay bởi webcam.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-cách-hoạt-động">4/ Cách hoạt động<a href="#4-cách-hoạt-động" class="hash-link" aria-label="Direct link to 4/ Cách hoạt động" title="Direct link to 4/ Cách hoạt động">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="41-các-bước-thực-hiện">4.1/ Các bước thực hiện<a href="#41-các-bước-thực-hiện" class="hash-link" aria-label="Direct link to 4.1/ Các bước thực hiện" title="Direct link to 4.1/ Các bước thực hiện">​</a></h3>
+<p><img loading="lazy" alt="step" src="/assets/images/webrtc-step-fc17d0a72c07ea389c5ceafe0edccafa.png" width="638" height="359" class="img_ev3q"></p>
+<ul>
+<li>
+<p>Sử dụng getUserMedia API để truy cập vào camera và microphone.</p>
+</li>
+<li>
+<p>Lấy thông tin network như địa chỉ IP, ports và trao đổi thông tin đó với các peer khác (những peer mà mình muốn connect tới) để tạo connection (kết nối) dù cho có bị ngăn cản bởi NATs hay firewalls.</p>
+</li>
+<li>
+<p>Sau đó thì dùng RTCPeerConnection và RTCDataChannel để voice call/ video call hoặc chia sẻ dữ liệu sau khi đã có kết nối peer-to-peer.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="42-mediastream">4.2/ MediaStream<a href="#42-mediastream" class="hash-link" aria-label="Direct link to 4.2/ MediaStream" title="Direct link to 4.2/ MediaStream">​</a></h2>
+<p>Một <code>MediaStream</code> đại diện cho sự đồng bộ dữ liệu âm thanh và hình ảnh. <code>MediaStream</code> được khởi tạo bằng cách gọi hàm getUserMedia (Web API) . Sau khi một kết nối WebRTC tới một máy tính khác được thiết lập, chúng ta có khả năng truy cập vào stream của máy tính đó. Mỗi peer sẽ có một local media stream riêng.</p>
+<p>Một <code>MediaStream</code> sẽ có input/output. Input là sẽ lấy những dữ liệu âm thanh và hình ảnh của local và output dùng để hiển thị lên view hoặc được RTCPeerConnection sử dụng</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="43-kết-nối-peer-to-peer">4.3/ Kết nối Peer to peer<a href="#43-kết-nối-peer-to-peer" class="hash-link" aria-label="Direct link to 4.3/ Kết nối Peer to peer" title="Direct link to 4.3/ Kết nối Peer to peer">​</a></h3>
+<p>Kết nối P2P của WebRTC là cách thức kết nối 2 ứng dụng ở 2 máy khác nhau. Khi kết nối thì chúg có thể truyển tải video, audio, binary data (nếu client đó hỗ trợ RTCDataChannel API). Để tạo được kết nối P2P giữa 2 client cần cung cấp cấu hình ICE (Internet Connectivity Establishment) Server. Bao gồm TURN hay STUN server có vai trò chuyển các cấu hình ICE candidates cho mỗi client để thực hiện peer connection. Cách chuyển các cấu hình ICE qua lại giữa các client được gọi là Signaling.</p>
+<p><strong>NAT (Network Address Translation)</strong></p>
+<p><img loading="lazy" alt="nat" src="/assets/images/webrtc-nat-9a252c5c79d247f35d3a4baa19834ede.png" width="1218" height="737" class="img_ev3q"></p>
+<ul>
+<li>
+<p>Có 2 loại IP là IP public và IP private, các máy trong mạng LAN được đặt IP Private vì mấy IP private không tồn tại ngoài Internet (Vd: 192.168.1.1, 192.168.1.2 etc). IP public thì tất nhiên tồn tại trên Internet rồi vì chùng ta đã đăng ký với ISP (nhà cung cấp dịch vụ Internet). Thông thường NAT thường thay đổi địa chỉ thường là địa chỉ riêng (IP Private) của một kết nối mạng thành địa chỉ công cộng (IP Public).</p>
+</li>
+<li>
+<p>Vậy khi A send B một gói tin với thông tin tóm lược như : IP nguồn (IP của A) : 192.168.1.1 , IP đích: (113.xxx.y.z)</p>
+</li>
+<li>
+<p>Bởi vì IP private không tồn tại ngoài Internet nên chúng ta cần NAT để thay thế IP private của A thành IP public.</p>
+</li>
+<li>
+<p>Ta có thể hiểu đơn giản là &quot;NAT sử dụng IP của chính nó làm IP công cộng cho mỗi máy con (client) với IP riêng. Khi một máy con thực hiện kết nối hoặc gửi dữ liệu tới một máy tính nào đó trên internet, dữ liệu sẽ được gởi tới NAT, sau đó NAT sẽ thay thế địa chỉ IP gốc của máy con đó rồi gửi gói dữ liệu đi với địa chỉ IP của NAT. Máy tính từ xa hoặc máy tính nào đó trên internet khi nhận được tín hiệu sẽ gởi gói tin trở về cho NAT computer bởi vì chúng nghĩ rằng NAT computer là máy đã gởi những gói dữ liệu đi. NAT ghi lại bảng thông tin của những máy tính đã gởi những gói tin đi ra ngoài trên mỗi cổng dịch vụ và gởi những gói tin nhận được về đúng máy tính đó (client).</p>
+</li>
+</ul>
+<p><strong>STUN (Simple Traversal Of UDP Through NAT):</strong></p>
+<ul>
+<li>
+<p>STUN có thể hiểu là khi một máy chủ nào xài NAT (behind NAT) thì STUN server sẽ giúp cho client đó biết được địa chỉ IP và Port mà thiết bị NAT sử dụng. Và từ đó giúp cho các peer có thể lấy được địa chỉ của peer khác (IP nào, cổng mấy, NAT loại gì).</p>
+</li>
+<li>
+<p>Nhưng STUN có một nhược điểm là nó không support Symmetric NAT (NAT có nhiều loại xem thêm), vì thế ta có TURN giúp khắc phục nhược điểm này</p>
+</li>
+</ul>
+<p><strong>TURN (Traversal Using NAT Relay):</strong></p>
+<p>Cũng giống như STUN tuy nhiên TURN hỗi trợ cả giao thức TCP làm giao thức truyền tải. TURN bổ xung cho hạn chế của STUN là hỗ trợ Symmetric NAT. Dữ liệu thay vì được gửi trực tiếp tới các peer thì các peer sẽ gửi dữ liệu tới các TURN server và TURN server sẽ đóng vai trò trung gian vận chuyển gói tin. Điều này nâng cao giúp chất lượng dịch vụ của ứng dụng mà còn đảm bảo an toàn thông tin khi truyền dẫn.</p>
+<p><img loading="lazy" alt="turn-stun" src="/assets/images/webrtc-turn-stun-3ba056860260e52aa1af005d48533869.png" width="295" height="297" class="img_ev3q"></p>
+<p><strong>SDP (Session Description Protocol)</strong></p>
+<p>Là một tiêu chuẩn để mô tả nội dung đa phương tiện của kết nối như độ phân giải, định dạng, codec, mã hóa, v.v. để cả hai client có thể hiểu nhau khi dữ liệu được truyền. Về bản chất, đây là siêu dữ liệu mô tả nội dung chứ không phải bản thân nội dung phương tiện.</p>
+<p><strong>ICE</strong></p>
+<ul>
+<li>
+<p>ICE nôm na dễ hiểu là một giao thức được cùng để thiết lập phiên media dựa trên UDP đi qua NAT một cách nhanh nhất.</p>
+</li>
+<li>
+<p>ICE sẽ tìm đường tốt nhất để kết nối giữa các peer, nó thử tất cả khả năng có thể kết nối một cách song song và lựa chọn con đường hiệu quả nhất (cướp ngân hàng làm giàu).</p>
+</li>
+<li>
+<p>Đầu tiên nó sẽ cố gắng tạo ra một kết nối bằng cách sử dụng địa chỉ thu được từ hệ điều hành và card mạng của thiết bị, nếu không thành công (có thể thiết bị đằng sau NAT) thì ICE sẽ lấy địa chỉ bên ngoài của thiết bị bằng cách sử dụng máy chủ STUN (nhưng đời có lúc không gặp may), nếu không thành công nữa thì nó sẽ chuyển lưu lượng mạng qua một máy chủ chuyển tiếp là TURN.</p>
+</li>
+<li>
+<p>Nếu khó nhớ thì các bạn cứ nghĩ là ICE xài STUN xong không được thì đi xài TURN.</p>
+</li>
+</ul>
+<p><strong>Signaling</strong></p>
+<p>VÌ WebRTC là phương thức giao tiếp P2P giữa 2 client. Vậy làm sao để 2 client này có thể biết được nhau và tạo connection? WebRTC cung cấp một Signaling protocol để làm việc đó. Signaling là một process dùng để setting, controlling và terminating một communicate session. Để 2 client có thể giao tiếp được với nhau cần phải trao đổi 3 thông tin:</p>
+<ul>
+<li>
+<p>Session controll information: xác định thời điểm tạo, đóng, thay đổi và report lỗi của session</p>
+</li>
+<li>
+<p>Network data: cung cấp thông tin endpoint (IP &amp; port) của client gọi tới (callee) cho client gọi (caller)</p>
+</li>
+<li>
+<p>Media data: xác định codecs và media type giữa caller và callee. Các thông tin này phải giống nhau. Nếu khác thì sẽ không thể kết nối thành công</p>
+</li>
+</ul>
+<p>Có rất nhiều cách để tạo Signaling giữa 2 client như: WebSocket, Socket.io, XMPP (Extensible Messaging and Presence Protocol), SIP (session initiation protocol),Kurento, hoặc đơn giản hơn bằng XHR.</p>
+<table><thead><tr><th></th><th>Giới thiệu</th><th>Protocol</th><th>Chuẩn giao tiếp</th><th>Thiết bị hỗ trợ</th><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead><tbody><tr><td>Websocket</td><td>Là 1 web API có trên browser.  Nó là một đặc tả mới của HTML5,  nên nó vẫn chưa được tất cả các trình duyệt hỗ trợ.</td><td>TCP</td><td>String, buffered arrays và blobs.</td><td>Browser, mobile</td><td>Giao tiếp real time. Kiểm tra được user nào đang online</td><td>TCP socket nên tốn thời gian khởi tạo</td></tr><tr><td>Socket.io</td><td>Là một thư viện viết dựa trên websocket.</td><td>TCP</td><td>String, buffered arrays và blobs.</td><td>Browser, mobile</td><td>Giao tiếp real time. Kiểm tra được user nào đang online</td><td>TCP socket nên tốn thời gian khởi tạo. Performance không tốt bằng websocket</td></tr><tr><td>SIP</td><td>là một giao thức báo hiệu được sử dụng để thiết lập  một phiên giao dịch trực tuyến giữa 2 hoặc nhiều người  tham gia, sửa đổi phiên đó và cuối cùng chấm dứt phiên đó.</td><td>TCP, UDP</td><td>Text based như HTTP</td><td>Browser, mobile, điện thoại bàn</td><td>Vì SIP là tiêu chuẩn mở nên nó tương thích với đa số các  thiết bị như: điện thoại bàn, tablets, laptop và nhiều  thiết bị khác</td><td>Quá trình set up server SIP tốn thời  gian và chi phí</td></tr><tr><td>XMPP</td><td>trước đây là Jabber, là giao thức mở và dựa trên nền tảng  XML dùng trong nhắn tin nhanh (instant messaging) và thông  tin hiện diện trực tuyến</td><td>TCP (native), HTTP</td><td>XML</td><td>Browser, mobile</td><td>Vì XMPP là một giao thức mở, bất kỳ ai cũng có thể có máy  chủ XMPP của riêng mình trong mạng mà không nhất thiết  phải kết nối với Internet</td><td>Nhắn tin dựa trên văn bản, không cung  cấp mã hóa đầu cuối</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-ưu-nhược-điểm">5. Ưu nhược điểm<a href="#5-ưu-nhược-điểm" class="hash-link" aria-label="Direct link to 5. Ưu nhược điểm" title="Direct link to 5. Ưu nhược điểm">​</a></h2>
+<p><strong>Ưu điểm</strong></p>
+<ul>
+<li>
+<p>Truyền tải data trực tiếp từ client tới client giảm thiểu gánh nặng cho server và latency</p>
+</li>
+<li>
+<p>Open source</p>
+</li>
+<li>
+<p>Dữ liệu media sẽ được mã hóa và xác thực nhờ giao thức SRTP (Secure Real-Time Transport Protocol). Nhờ vậy, trong quá trình thực hiện tác vụ video hay voice, bạn có thể yên tâm, không bị nghe trộm.</p>
+</li>
+<li>
+<p>Hỗ trợ lọc tiếng ồn và hỗ trợ các codec có sẵn.</p>
+</li>
+<li>
+<p>WebRTC hỗ trợ việc tích hợp với nhiều kiểu media và các thiết bị đầu cuối khác nhau. Nhờ vậy, các ứng dụng tương tác video hoặc gọi thoại của người dùng sử dụng băng thông hiệu quả hơn.Các APIs WebRTC và signaling có thể thỏa thuận kích thước và định dạng cho mỗi thiết bị đầu cuối.</p>
+</li>
+<li>
+<p>Nhờ tính năng video call, người dùng không phải tốn cước điện thoại cho mỗi cuộc gọi nữa.</p>
+</li>
+</ul>
+<p><strong>Nhược điểm</strong></p>
+<ul>
+<li>
+<p>Tuỳ vào browser, các browser Google Chrome và Firefox support rất mạnh về WebRTC. Các browser Microsoft Edge, Safari phải cài thêm plugin</p>
+</li>
+<li>
+<p>Truyền tải theo protocol UDP dẫn tới dễ mất dữ liệu nên không thích hợp truyền tải file.</p>
+</li>
+<li>
+<p>Không có một standard signal protocol nào, nên sẽ phải tự triển khai các kết nối. Ví dụ: WebSocket, Socket.io, XMPP, SIP (session initiation protocol) hoặc đơn giản hơn bằng XHR</p>
+</li>
+<li>
+<p>WebRTC bị cản bởi NAT và tường lửa khi cố gắng thực hiện kết nối P2P.</p>
+</li>
+<li>
+<p>Không có cơ chế báo hiệu cài sẵn khi WebRTC tạo kết nối P2P giữa các trình duyệt.</p>
+</li>
+<li>
+<p>Các hãng trình duyệt chưa thống nhất được chuẩn video sử dụng cho WebRTC.</p>
+</li>
+<li>
+<p>Số lượng hàm API WebRTC hỗ trợ cho mỗi trình duyệt là khác nhau, tăng rủi ro phát sinh lỗi khi sử dụng trên các trình duyệt khác nhau.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="6-conclusion">6. Conclusion<a href="#6-conclusion" class="hash-link" aria-label="Direct link to 6. Conclusion" title="Direct link to 6. Conclusion">​</a></h2>
+<p>WebRTC thích hợp cho việc tạo ứng dụng video call, audio call giảm tải cho server. Vì WebRTC viết trên giao thức UDP nên không thích hợp truyền file với yêu cầu tính toàn vẹn cao.</p>
+<p>Bởi vì chỉ có thể gọi P2P nên không hỗ trợ việc call room hay stream video xuống cho nhiều đối tượng được. Nhưng ta có thể set up một Media WebRTC server để phục vụ việc này. Những software hỗ trợ việc tạo một Media WebRTC server như: Kurento, Licode, MediaSoup</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Technical stack/webrtc.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Technical stack/cached-me-if-you-can"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Cache me if you can: A Look at Common Caching Strategies, and how CQRS can Replace the Need in the First Place</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#nội-dung" class="table-of-contents__link toc-highlight">Nội dung</a></li><li><a href="#1-giới-thiệu" class="table-of-contents__link toc-highlight">1. Giới thiệu</a></li><li><a href="#2-công-dụng-của-webrtc" class="table-of-contents__link toc-highlight">2. Công dụng của WebRTC</a></li><li><a href="#3-kiến-trúc" class="table-of-contents__link toc-highlight">3. Kiến trúc</a></li><li><a href="#4-cách-hoạt-động" class="table-of-contents__link toc-highlight">4/ Cách hoạt động</a><ul><li><a href="#41-các-bước-thực-hiện" class="table-of-contents__link toc-highlight">4.1/ Các bước thực hiện</a></li></ul></li><li><a href="#42-mediastream" class="table-of-contents__link toc-highlight">4.2/ MediaStream</a><ul><li><a href="#43-kết-nối-peer-to-peer" class="table-of-contents__link toc-highlight">4.3/ Kết nối Peer to peer</a></li></ul></li><li><a href="#5-ưu-nhược-điểm" class="table-of-contents__link toc-highlight">5. Ưu nhược điểm</a></li><li><a href="#6-conclusion" class="table-of-contents__link toc-highlight">6. Conclusion</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Tutorial</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
