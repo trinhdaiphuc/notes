@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build website
-        run: yarn deploy
+        run: GIT_USER=trinhdaiphuc GIT_PASS=${{secrets.GITHUB_TOKEN}} yarn deploy
