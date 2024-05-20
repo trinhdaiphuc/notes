@@ -124,23 +124,10 @@ Kết quả, ta thấy số lượng request per second (rps) của service unar
 
 <h2 id="pros-cons">Ưu nhược điểm</h2>
 
-Ưu điểm
-
-- xDS
-  - Performance tốt vì client vẫn sẽ kết nối trực tiếp với back end server
-
-- Proxy
-  - Không cần phải implement code và thay đổi code của client và server
-
-Nhược điểm:
-
-- xDS
-  - Tạo CRD để xDS kết nối với Kubernetes API. Cần đảm bảo logic của xDS không ảnh hưởng tới các service khác.
-  - Phải implement xDS service phù hợp với yêu cầu mong muốn và đảm bảo logic update resoure được tối ưu.
-  - Phải implement thêm ở phía client.
-
-- Proxy
-  - Performance không tốt vì phải đi qua proxy
+|            	| xDS                                                                                                                                                                                                                                                             	| Proxy                                                                 	|
+|------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|-----------------------------------------------------------------------	|
+| Ưu điểm    	| - Performance tốt vì client vẫn sẽ kết nối trực tiếp với back end server                                                                                                                                                                                        	| - Không cần phải implement code và thay đổi code của client và server 	|
+| Nhược điểm 	| - Tạo CRD để xDS kết nối với Kubernetes API. Cần đảm bảo logic của xDS không ảnh hưởng tới các service khác.<br>- Phải implement xDS service phù hợp với yêu cầu mong muốn và đảm bảo logic update resoure được tối ưu.<br>- Phải implement thêm ở phía client. 	| - Performance không tốt vì phải đi qua proxy                          	|
 
 > Istio cũng đang thử nghiệm phiên bản proxyless của mình sử dụng xDS cơ chế tương tự như trên để không còn phải đi qua các proxy sidecar nữa. 
 > Xem thêm: https://istio.io/v1.12/blog/2021/proxyless-grpc/, https://events.istio.io/istiocon-2022/sessions/proxyless-grpc/
